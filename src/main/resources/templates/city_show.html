@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:td="http://www.w3.org/1999/xhtml">
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>City Info</title>
+</head>
+<body>
+<h2>City</h2>
+<table>
+    <tbody>
+    <tr>
+        <td>ID</td>
+        <td th:text="${cityInfo.id}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${cityInfo.name}"></td>
+    </tr>
+    <tr>
+        <td>Country Code</td>
+        <td th:text="${cityInfo.countryCode}"></td>
+    </tr>
+    <tr>
+        <td>Country Name</td>
+        <td th:text="${cityInfo.countryName}"></td>
+    </tr>
+    <tr>
+        <td>District</td>
+        <td th:text="${cityInfo.district}"></td>
+    </tr>
+    <tr>
+        <td>Population</td>
+        <td th:text="${cityInfo.population}"></td>
+    </tr>
+    <tr>
+        <td>Local Weather</td>
+        <td th:text="${cityInfo.temp}"></td>
+    </tr>
+    <tr>
+        <td>Local Time</td>
+        <td th:text="${cityInfo.time}"></td>
+    </tr>
+    </tbody>
+</table>
+<p>For a fabulous weekend get away for 2 to
+    <span th:text="${cityInfo.name}"></span> sign up here.</p>
+
+<form method = "post" action = "/cities/reservation">
+    <input type="hidden" id="city" name="city" th:value="${cityInfo.name}">
+    <label for="email">Email: </label><br>
+    <input type="email" id="email" name="email"><br>
+    <input type="radio" id="luxury" name="level" value="luxury">
+    <label for="luxury"> Luxury $1000</label><br>
+    <input type="radio" id="moderate" name="level" value="moderate">
+    <label for="moderate">Very Good $500</label><br>
+    <input type="radio" id="budget" name="level" value="budget">
+    <label for="budget">Good $350</label><br>
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>
